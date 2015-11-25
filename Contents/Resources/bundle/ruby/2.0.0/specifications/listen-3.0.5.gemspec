@@ -1,14 +1,14 @@
 # -*- encoding: utf-8 -*-
-# stub: listen 3.0.3 ruby lib
+# stub: listen 3.0.5 ruby lib
 
 Gem::Specification.new do |s|
   s.name = "listen"
-  s.version = "3.0.3"
+  s.version = "3.0.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Thibaud Guillaume-Gentil"]
-  s.date = "2015-07-23"
+  s.date = "2015-11-18"
   s.description = "The Listen gem listens to file modifications and notifies you about the changes. Works everywhere!"
   s.email = "thibaud@thibaud.gg"
   s.executables = ["listen"]
