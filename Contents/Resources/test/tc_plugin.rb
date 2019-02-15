@@ -4,9 +4,8 @@ require "test/unit"
 
 require_relative "lib/test_constants"
 require_relative '../bundle/bundler/setup'
-require 'repla'
-
-require Repla::shared_test_resource("ruby/test_constants")
+require 'repla/test'
+require Repla::Tests::REPLA_FILE
 require Repla::Tests::TEST_HELPER_FILE
 
 class TestPlugin < Test::Unit::TestCase
