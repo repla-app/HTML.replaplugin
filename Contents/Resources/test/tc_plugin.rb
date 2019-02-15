@@ -36,8 +36,7 @@ class TestPlugin < Test::Unit::TestCase
 
   # TODO Pass to stdin of plugin and test its title
   # def test_load_html_from_stdin
-  #   html = File.read(TEST_HTML_FILE)
-  #   Repla::plugin_read_from_standard_input(TEST_PLUGIN_NAME, html)
+  #   Repla::plugin_read_from_standard_input(TEST_PLUGIN_NAME, TEST_HTML_FILE)
   # end
 
   # TODO Test changes to the HTML files are updated
