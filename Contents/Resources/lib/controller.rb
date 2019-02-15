@@ -1,13 +1,13 @@
 module Repla::HTML
   class Controller
 
-    def initialize(delegate = nil, html)
+    def initialize(delegate = nil, file)
       @delegate = delegate
-      @delegate.load_html(html) if @delegate
+      @delegate.load_file(file) if @delegate
     end
 
-    def html=(html)
-      @delegate.load_html(html) if @delegate
+    def file=(file)
+      @delegate.load_file(file) if @delegate
     end
 
   end
