@@ -4,7 +4,7 @@ require_relative 'bundle/bundler/setup'
 require 'repla'
 require 'listen'
 
-require_relative "lib/controller"
+require_relative 'lib/controller'
 
 file = ARGF.file unless ARGV.empty?
 
@@ -13,18 +13,19 @@ path = File.expand_path(File.dirname(file))
 
 window = Repla::Window.new
 window.root_access_directory_path = path
-controller = Repla::HTML::Controller.new(window, file_path)
+controller = Repla::HTML::Controller.new(file_path, window)
 
-listener = Listen.to(path, only: /(\.html$)|(\.css$)|(\.js$)/) { |modified, added, removed| 
-  File.open(file) { |f| 
+globs = /(\.html$)|(\.css$)|(\.js$)/
+listener = Listen.to(path, only: globs) do |_modified, _added, _removed|
+  File.open(file) do |_f|
     controller.file = file
-  }
-}
+  end
+end
 
 listener.start
 
-trap("SIGINT") {
+trap('SIGINT') do
   exit
-}
+end
 
 sleep

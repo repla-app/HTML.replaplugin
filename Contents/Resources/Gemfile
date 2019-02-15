@@ -1,6 +1,8 @@
 # A sample Gemfile
-source "https://rubygems.org"
+source 'https://rubygems.org'
 ruby '2.3.7'
-gem "listen"
-gem "repla"
-gem "nio" # "nio" is a dependency of listen, before adding it explicitely here, new machines were getting a load error.
+gem 'listen'
+# "nio" is a dependency of listen, before adding it explicitely here, new
+# machines were getting a load error.
+gem 'nio'
+gem 'repla'
