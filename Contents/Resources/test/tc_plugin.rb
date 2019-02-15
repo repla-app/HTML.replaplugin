@@ -8,6 +8,7 @@ require 'repla/test'
 require Repla::Test::REPLA_FILE
 require Repla::Test::HELPER_FILE
 
+# Test plugin
 class TestPlugin < Test::Unit::TestCase
   def setup
     Repla.load_plugin(TEST_HTML_PLUGIN_PATH)
@@ -17,7 +18,7 @@ class TestPlugin < Test::Unit::TestCase
     # window.close
     Repla::Test::Helper.quit
     Repla::Test::Helper.confirm_dialog
-    assert(!Repla::Test::Helper.app_running?, 'The application should not be running.')
+    assert(!Repla::Test::Helper.app_running?)
   end
 
   def test_load_html_file

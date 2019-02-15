@@ -1,12 +1,15 @@
-module Repla::HTML
-  class Controller
-    def initialize(delegate = nil, file)
-      @delegate = delegate
-      @delegate.load_file(file) if @delegate
-    end
+module Repla
+  module HTML
+    # Controller
+    class Controller
+      def initialize(delegate = nil, file)
+        @delegate = delegate
+        @delegate.load_file(file) if @delegate
+      end
 
-    def file=(file)
-      @delegate.load_file(file) if @delegate
+      def file=(file)
+        @delegate.load_file(file) if @delegate
+      end
     end
   end
 end
