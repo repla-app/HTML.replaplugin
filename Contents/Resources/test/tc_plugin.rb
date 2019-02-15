@@ -31,7 +31,7 @@ class TestPlugin < Test::Unit::TestCase
     window = Repla::Window.new(window_id)
 
     title = window.do_javascript(TEST_TITLE_JAVASCRIPT)
-    assert_equal(title, TEST_HTML_TITLE, "The title should equal the test html title.")
+    assert_equal(TEST_HTML_TITLE, title)
   end
 
   # TODO Pass to stdin of plugin and test its title
