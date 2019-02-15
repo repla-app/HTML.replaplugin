@@ -4,7 +4,7 @@ require "test/unit"
 require 'Shellwords'
 
 require_relative '../bundle/bundler/setup'
-require 'webconsole'
+require 'repla'
 
 require_relative "lib/test_constants"
 require_relative "../lib/controller"
