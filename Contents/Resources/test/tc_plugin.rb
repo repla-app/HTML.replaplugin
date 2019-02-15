@@ -5,8 +5,8 @@ require "test/unit"
 require_relative "lib/test_constants"
 require_relative '../bundle/bundler/setup'
 require 'repla/test'
-require Repla::Tests::REPLA_FILE
-require Repla::Tests::TEST_HELPER_FILE
+require Repla::Test::REPLA_FILE
+require Repla::Test::TEST_HELPER_FILE
 
 class TestPlugin < Test::Unit::TestCase
 
@@ -16,16 +16,16 @@ class TestPlugin < Test::Unit::TestCase
 
   def teardown
     # window.close
-    Repla::Tests::Helper::quit
-    Repla::Tests::Helper::confirm_dialog
-    assert(!Repla::Tests::Helper::is_running, "The application should not be running.")
+    Repla::Test::Helper::quit
+    Repla::Test::Helper::confirm_dialog
+    assert(!Repla::Test::Helper::is_running, "The application should not be running.")
   end
 
   def test_load_html_file
     Repla::load_plugin(TEST_HTML_PLUGIN_PATH)
     Repla::run_plugin(TEST_PLUGIN_NAME, TEST_HTML_PLUGIN_PATH, [TEST_HTML_FILE])
 
-    sleep Repla::Tests::TEST_PAUSE_TIME # Give the plugin time to finish running
+    sleep Repla::Test::TEST_PAUSE_TIME # Give the plugin time to finish running
 
     window_id = Repla::window_id_for_plugin(TEST_PLUGIN_NAME)
     window = Repla::Window.new(window_id)

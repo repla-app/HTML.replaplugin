@@ -3,8 +3,8 @@ require_relative '../bundle/bundler/setup'
 require 'shellwords'
 
 require 'repla/test'
-require Repla::Tests::TEST_HELPER_FILE
-require Repla::Tests::REPLA_FILE
+require Repla::Test::TEST_HELPER_FILE
+require Repla::Test::REPLA_FILE
 
 task :default => ['html:tests']
 
@@ -23,6 +23,6 @@ namespace :html do
   end
 
   task :clean_up => [:test_plugin] do
-    Repla::Tests::Helper::quit
+    Repla::Test::Helper::quit
   end
 end
