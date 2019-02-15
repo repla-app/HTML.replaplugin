@@ -14,17 +14,17 @@ html = ARGF.read
 # the Web Console Application doesn't yet support running a plugin
 # and reading from stdin simultaneously
 # if !file
-#   window = WebConsole::Window.new
-#   WebConsole::Controller.new(window, html)
+#   window = Repla::Window.new
+#   Repla::Controller.new(window, html)
 #   exit
 # end
 
 filename = File.basename(file)
 path = File.expand_path(File.dirname(file))
 
-window = WebConsole::Window.new
+window = Repla::Window.new
 window.base_url_path = path
-controller = WebConsole::HTML::Controller.new(window, html)
+controller = Repla::HTML::Controller.new(window, html)
 
 listener = Listen.to(path, only: /(\.html$)|(\.css$)|(\.js$)/) { |modified, added, removed| 
   File.open(file) { |f| 

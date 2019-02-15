@@ -1,4 +1,4 @@
-module WebConsole::HTML
+module Repla::HTML
   class Controller
 
     def initialize(delegate = nil, html)

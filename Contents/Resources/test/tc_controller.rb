@@ -13,8 +13,8 @@ class TestController < Test::Unit::TestCase
 
   def test_controller
     html = File.read(TEST_HTML_FILE)
-    window = WebConsole::Window.new
-    controller = WebConsole::HTML::Controller.new(window, html)
+    window = Repla::Window.new
+    controller = Repla::HTML::Controller.new(window, html)
 
     title = window.do_javascript(TEST_TITLE_JAVASCRIPT)
     assert_equal(title, TEST_HTML_TITLE, "The title should equal the test html title.")
