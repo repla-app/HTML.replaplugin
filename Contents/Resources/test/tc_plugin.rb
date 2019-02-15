@@ -6,7 +6,7 @@ require_relative "lib/test_constants"
 require_relative '../bundle/bundler/setup'
 require 'repla/test'
 require Repla::Test::REPLA_FILE
-require Repla::Test::TEST_HELPER_FILE
+require Repla::Test::HELPER_FILE
 
 class TestPlugin < Test::Unit::TestCase
 
