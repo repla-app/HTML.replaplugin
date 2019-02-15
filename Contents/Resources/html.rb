@@ -8,27 +8,15 @@ require_relative "lib/controller"
 
 file = ARGF.file unless ARGV.empty?
 
-html = ARGF.read
-
-# This should allow the plugin to process HTML from stdin, but
-# the Web Console Application doesn't yet support running a plugin
-# and reading from stdin simultaneously
-# if !file
-#   window = Repla::Window.new
-#   Repla::Controller.new(window, html)
-#   exit
-# end
-
-filename = File.basename(file)
 path = File.expand_path(File.dirname(file))
 
 window = Repla::Window.new
-window.base_url_path = path
-controller = Repla::HTML::Controller.new(window, html)
+window.root_access_directory_path = path
+controller = Repla::HTML::Controller.new(window, file)
 
 listener = Listen.to(path, only: /(\.html$)|(\.css$)|(\.js$)/) { |modified, added, removed| 
   File.open(file) { |f| 
-    controller.html = f.read
+    controller.file = file
   }
 }
 
