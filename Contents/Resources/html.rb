@@ -8,11 +8,12 @@ require_relative "lib/controller"
 
 file = ARGF.file unless ARGV.empty?
 
+file_path = File.expand_path(file)
 path = File.expand_path(File.dirname(file))
 
 window = Repla::Window.new
 window.root_access_directory_path = path
-controller = Repla::HTML::Controller.new(window, file)
+controller = Repla::HTML::Controller.new(window, file_path)
 
 listener = Listen.to(path, only: /(\.html$)|(\.css$)|(\.js$)/) { |modified, added, removed| 
   File.open(file) { |f| 
