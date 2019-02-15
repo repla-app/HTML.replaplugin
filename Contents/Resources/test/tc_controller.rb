@@ -13,7 +13,7 @@ require_relative '../lib/controller'
 class TestController < Test::Unit::TestCase
   def test_controller
     window = Repla::Window.new
-    controller = Repla::HTML::Controller.new(window, TEST_HTML_FILE)
+    controller = Repla::HTML::Controller.new(TEST_HTML_FILE, window)
 
     title = window.do_javascript(TEST_TITLE_JAVASCRIPT)
     assert_equal(title, TEST_HTML_TITLE)

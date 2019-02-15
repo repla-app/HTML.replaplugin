@@ -2,7 +2,7 @@ module Repla
   module HTML
     # Controller
     class Controller
-      def initialize(delegate = nil, file)
+      def initialize(file, delegate = nil)
         @delegate = delegate
         @delegate.load_file(file) if @delegate
       end
