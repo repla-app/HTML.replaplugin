@@ -18,7 +18,7 @@ class TestPlugin < Test::Unit::TestCase
     # window.close
     Repla::Test::Helper::quit
     Repla::Test::Helper::confirm_dialog
-    assert(!Repla::Test::Helper::is_running, "The application should not be running.")
+    assert(!Repla::Test::Helper::app_running?, "The application should not be running.")
   end
 
   def test_load_html_file
