@@ -1,34 +1,23 @@
 #!/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby
 
 require_relative 'bundle/bundler/setup'
-require 'webconsole'
+require 'repla'
 require 'listen'
 
 require_relative "lib/controller"
 
 file = ARGF.file unless ARGV.empty?
 
-html = ARGF.read
-
-# This should allow the plugin to process HTML from stdin, but
-# the Web Console Application doesn't yet support running a plugin
-# and reading from stdin simultaneously
-# if !file
-#   window = WebConsole::Window.new
-#   WebConsole::Controller.new(window, html)
-#   exit
-# end
-
-filename = File.basename(file)
+file_path = File.expand_path(file)
 path = File.expand_path(File.dirname(file))
 
-window = WebConsole::Window.new
-window.base_url_path = path
-controller = WebConsole::HTML::Controller.new(window, html)
+window = Repla::Window.new
+window.root_access_directory_path = path
+controller = Repla::HTML::Controller.new(window, file_path)
 
 listener = Listen.to(path, only: /(\.html$)|(\.css$)|(\.js$)/) { |modified, added, removed| 
   File.open(file) { |f| 
-    controller.html = f.read
+    controller.file = file
   }
 }
 
