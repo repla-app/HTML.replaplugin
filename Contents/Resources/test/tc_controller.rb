@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'test/unit'
+require 'minitest/autorun'
 require 'Shellwords'
 
 require_relative '../bundle/bundler/setup'
@@ -10,7 +10,7 @@ require_relative 'lib/test_constants'
 require_relative '../lib/controller'
 
 # Test controller
-class TestController < Test::Unit::TestCase
+class TestController < Minitest::Test
   def test_controller
     window = Repla::Window.new
     controller = Repla::HTML::Controller.new(TEST_HTML_FILE, window)
