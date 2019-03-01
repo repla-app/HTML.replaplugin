@@ -25,6 +25,7 @@ class TestPlugin < Minitest::Test
 
     title = window.do_javascript(TEST_TITLE_JAVASCRIPT)
     assert_equal(TEST_HTML_TITLE, title)
+    window.close
   end
 
   # TODO: Pass to stdin of plugin and test its title
