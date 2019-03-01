@@ -23,6 +23,5 @@ namespace :html do
   end
 
   task clean_up: [:test_plugin] do
-    Repla::Test::Helper.quit
   end
 end

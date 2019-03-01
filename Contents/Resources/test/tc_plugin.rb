@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'test/unit'
+require 'minitest/autorun'
 
 require_relative 'lib/test_constants'
 require_relative '../bundle/bundler/setup'
@@ -9,15 +9,9 @@ require Repla::Test::REPLA_FILE
 require Repla::Test::HELPER_FILE
 
 # Test plugin
-class TestPlugin < Test::Unit::TestCase
+class TestPlugin < Minitest::Test
   def setup
     Repla.load_plugin(TEST_HTML_PLUGIN_PATH)
-  end
-
-  def teardown
-    # window.close
-    Repla::Test::Helper.quit
-    assert(!Repla::Test::Helper.app_running?)
   end
 
   def test_load_html_file
@@ -31,6 +25,7 @@ class TestPlugin < Test::Unit::TestCase
 
     title = window.do_javascript(TEST_TITLE_JAVASCRIPT)
     assert_equal(TEST_HTML_TITLE, title)
+    window.close
   end
 
   # TODO: Pass to stdin of plugin and test its title
