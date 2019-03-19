@@ -12,4 +12,4 @@ $:.unshift "#{path}/../#{ruby_engine}/#{ruby_version}/gems/rb-inotify-0.10.0/lib
 $:.unshift "#{path}/../#{ruby_engine}/#{ruby_version}/gems/ruby_dep-1.5.0/lib"
 $:.unshift "#{path}/../#{ruby_engine}/#{ruby_version}/gems/listen-3.1.5/lib"
 $:.unshift "#{path}/../#{ruby_engine}/#{ruby_version}/gems/nio-0.2.5/lib"
-$:.unshift "#{path}/../#{ruby_engine}/#{ruby_version}/gems/repla-0.7.3/lib"
+$:.unshift "#{path}/../#{ruby_engine}/#{ruby_version}/gems/repla-0.7.5/lib"
