@@ -18,9 +18,11 @@ class TestPlugin < Minitest::Test
     Repla.load_plugin(TEST_HTML_PLUGIN_PATH)
     Repla.run_plugin(TEST_PLUGIN_NAME, TEST_HTML_PLUGIN_PATH, [TEST_HTML_FILE])
 
-    sleep Repla::Test::TEST_PAUSE_TIME # Give the plugin time to finish running
-
-    window_id = Repla.window_id_for_plugin(TEST_PLUGIN_NAME)
+    window_id = nil
+    Repla::Test.block_until do
+      window_id = Repla.window_id_for_plugin(TEST_PLUGIN_NAME)
+      !window_id.nil?
+    end
     window = Repla::Window.new(window_id)
 
     title = window.do_javascript(TEST_TITLE_JAVASCRIPT)
