@@ -25,7 +25,11 @@ class TestPlugin < Minitest::Test
     end
     window = Repla::Window.new(window_id)
 
-    title = window.do_javascript(TEST_TITLE_JAVASCRIPT)
+    title = nil
+    Repla::Test.block_until do
+      title = window.do_javascript(TEST_TITLE_JAVASCRIPT)
+      title == TEST_HTML_TITLE
+    end
     assert_equal(TEST_HTML_TITLE, title)
     window.close
   end
