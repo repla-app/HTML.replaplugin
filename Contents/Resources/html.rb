@@ -2,6 +2,9 @@
 
 require_relative 'bundle/bundler/setup'
 require 'repla'
+# One of the dependencies of `listen` assumes gems is available, so we re-add
+# it here
+require 'rubygems'
 require 'listen'
 
 require_relative 'lib/controller'
