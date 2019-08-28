@@ -3,16 +3,12 @@
 <plist version="1.0">
 <dict>
 	<key>WCName</key>
-	<string>FileExtension</string>
+	<string>Echo</string>
 	<key>WCCommand</key>
-	<string>cat.sh</string>
+	<string>echo.sh</string>
 	<key>WCUUID</key>
-	<string>C4B09ED5-ED60-44FF-A0BB-43EF6F8AF569</string>
+	<string>4647A34D-69CB-46D9-8905-4026025DA688</string>
 	<key>WCEditable</key>
 	<integer>0</integer>
-	<key>WCFileExtensions</key>
-	<array>
-		<string>txt</string>
-	</array>
 </dict>
 </plist>
