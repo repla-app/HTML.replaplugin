@@ -7,8 +7,8 @@ module Repla
         @delegate.load_file(file) if @delegate
       end
 
-      def file=(file)
-        @delegate.load_file(file) if @delegate
+      def reload
+        @delegate.reload
       end
     end
   end

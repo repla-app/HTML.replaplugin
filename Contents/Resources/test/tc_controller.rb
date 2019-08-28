@@ -16,12 +16,19 @@ class TestController < Minitest::Test
     controller = Repla::HTML::Controller.new(TEST_HTML_FILE, window)
 
     title = window.do_javascript(TEST_TITLE_JAVASCRIPT)
-    assert_equal(title, TEST_HTML_TITLE)
+    assert_equal(TEST_HTML_TITLE, title)
 
-    controller.file = TEST_HTML_FILE_TWO
-    title_two = window.do_javascript(TEST_TITLE_JAVASCRIPT)
-    assert_equal(title_two, TEST_HTML_TITLE_TWO)
+    # Change the title
+    new_title = 'Changed'
+    refute_equal(title, new_title)
+    window.do_javascript("document.title = '#{new_title}'")
+    title = window.do_javascript(TEST_TITLE_JAVASCRIPT)
+    assert_equal(new_title, title)
 
+    # Confirm refresh changes it back
+    controller.reload
+    title = window.do_javascript(TEST_TITLE_JAVASCRIPT)
+    assert_equal(TEST_HTML_TITLE, title)
     window.close
   end
 end
