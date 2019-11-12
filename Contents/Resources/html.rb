@@ -1,4 +1,4 @@
-#!usr/bin/env ruby --disable-gems
+#!/usr/bin/env ruby --disable-gems
 
 require_relative 'bundle/bundler/setup'
 require 'repla'
