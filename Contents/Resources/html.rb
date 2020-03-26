@@ -12,11 +12,18 @@ require_relative 'lib/controller'
 file = ARGF.file unless ARGV.empty?
 
 file_path = File.expand_path(file)
+
 path = File.expand_path(File.dirname(file))
 
 window = Repla::Window.new
 window.root_access_directory_path = path
 controller = Repla::HTML::Controller.new(file_path, window)
+
+real_pwd = File.realpath(pwd)
+real_home = File.realpath(home)
+real_library = File.realpath(File.join(home, 'Library'))
+disable_listen = [real_home, real_library].include?(real_pwd)
+exit if disable_listen
 
 # globs = /(\.html$)|(\.css$)|(\.js$)/
 # listener = Listen.to(path, only: globs) do |_modified, _added, _removed|
