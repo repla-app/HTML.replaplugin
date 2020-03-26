@@ -19,7 +19,9 @@ window = Repla::Window.new
 window.root_access_directory_path = path
 controller = Repla::HTML::Controller.new(file_path, window)
 
-real_pwd = File.realpath(pwd)
+require 'etc'
+home = Etc.getpwuid.dir
+real_pwd = File.realpath(Dir.pwd)
 real_home = File.realpath(home)
 real_library = File.realpath(File.join(home, 'Library'))
 disable_listen = [real_home, real_library].include?(real_pwd)
