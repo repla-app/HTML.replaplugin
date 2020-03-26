@@ -18,8 +18,9 @@ window = Repla::Window.new
 window.root_access_directory_path = path
 controller = Repla::HTML::Controller.new(file_path, window)
 
-globs = /(\.html$)|(\.css$)|(\.js$)/
-listener = Listen.to(path, only: globs) do |_modified, _added, _removed|
+# globs = /(\.html$)|(\.css$)|(\.js$)/
+# listener = Listen.to(path, only: globs) do |_modified, _added, _removed|
+listener = Listen.to(path) do |_modified, _added, _removed|
   File.open(file) do |_f|
     controller.reload
   end
