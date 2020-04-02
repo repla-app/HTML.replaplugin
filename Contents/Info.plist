@@ -10,6 +10,8 @@
 	<string>7CD5AF0C-7C9F-43C6-A6F2-E542C729205D</string>
 	<key>WCAutoShowLog</key>
 	<integer>0</integer>
+	<key>WCEditable</key>
+	<integer>0</integer>
 	<key>WCFileExtensions</key>
 	<array>
 		<string>html</string>
