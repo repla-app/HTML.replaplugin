@@ -30,9 +30,7 @@ exit if disable_listen
 # globs = /(\.html$)|(\.css$)|(\.js$)/
 # listener = Listen.to(path, only: globs) do |_modified, _added, _removed|
 listener = Listen.to(path) do |_modified, _added, _removed|
-  File.open(file) do |_f|
-    controller.reload
-  end
+  controller.reload
 end
 
 listener.start
