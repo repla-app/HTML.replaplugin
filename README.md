@@ -1,1 +1,1 @@
-# HTML [![Build Status](https://travis-ci.org/repla-app/HTML.replaplugin.svg?branch=master)](https://travis-ci.org/repla-app/HTML.replaplugin)
+# HTML ![Status](https://github.com/repla-app/HTML.replaplugin/actions/workflows/ci.yml/badge.svg)
